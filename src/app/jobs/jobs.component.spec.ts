@@ -18,7 +18,7 @@ describe('JobsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         HttpClientModule,
         MatToolbarModule,
         MatListModule,
@@ -43,13 +43,13 @@ describe('JobsComponent', () => {
   });
 
   it(`should have as title 'Jobs List'`, () => {
-    const fixture = TestBed.createComponent(JobsComponent);
+    fixture = TestBed.createComponent(JobsComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('Jobs List');
   });
 
   it('should render title in a mat-toolbar-row span tag', () => {
-    const fixture = TestBed.createComponent(JobsComponent);
+    fixture = TestBed.createComponent(JobsComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('mat-toolbar-row span').textContent).toContain('Welcome to Jobs List!');
@@ -66,7 +66,7 @@ describe('JobsComponent', () => {
   it('should set jobDetails', () => {
     const jobsList: any = jobsData;
 
-    component.setJobDetails(jobsList.default.body[0])
+    component.setJobDetails(jobsList.default.body[0]);
 
     expect(component.jobDetails).toEqual(jobsList.default.body[0]);
   });
@@ -86,7 +86,7 @@ describe('JobsComponent', () => {
   it('should render a job list', async(async() => {
     const jobsListJson: any = jobsData;
     spyOn(jobsService, 'fetchAllJobs').and.returnValue(of(jobsListJson));
-    component.jobs = jobsListJson.default.body
+    component.jobs = jobsListJson.default.body;
     component.ngOnInit();
 
     await fixture.whenStable();
@@ -101,7 +101,7 @@ describe('JobsComponent', () => {
   it('should render the job details', async(async() => {
     const jobsListJson: any = jobsData;
     component.jobs = jobsListJson.default.body;
-    component.setJobDetails(component.jobs[0])
+    component.setJobDetails(component.jobs[0]);
 
     await fixture.whenStable();
     fixture.detectChanges();
@@ -115,7 +115,7 @@ describe('JobsComponent', () => {
   it('should change the job details if it is updated', async(async() => {
     const jobsListJson: any = jobsData;
     component.jobs = jobsListJson.default.body;
-    component.setJobDetails(component.jobs[0])
+    component.setJobDetails(component.jobs[0]);
     const firstJobDetails = component.jobDetails;
 
     await fixture.whenStable();
@@ -125,7 +125,7 @@ describe('JobsComponent', () => {
 
     const jobDetailsOne = compiled.querySelectorAll('mat-list-item.job-details-list-item-test');
 
-    component.setJobDetails(component.jobs[1])
+    component.setJobDetails(component.jobs[1]);
     const secondJobDetails = component.jobDetails;
 
     await fixture.whenStable();

@@ -17,7 +17,7 @@ export class JobsComponent implements OnInit, OnDestroy {
   constructor(private jobsService: JobsService) { }
 
   formatDate(date) {
-    return moment(date).format('lll')
+    return moment(date).format('lll');
   }
 
   setJobDetails(job) {
@@ -34,6 +34,6 @@ export class JobsComponent implements OnInit, OnDestroy {
 
   private setJobs() {
     this.allJobsSubscription = this.jobsService.fetchAllJobs()
-      .subscribe((jobsResponse: any) => this.jobs = jobsResponse.body)
+      .subscribe((jobsResponse: any) => this.jobs = jobsResponse.body);
   }
 }
