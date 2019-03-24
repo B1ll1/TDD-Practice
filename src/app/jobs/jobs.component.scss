@@ -1,0 +1,48 @@
+.home-content {
+  background-color: white;
+
+  .title-row {
+    justify-content: space-between;
+    background-color: #4c5264;
+  
+    span {
+      color: white;
+    }
+  }
+
+  .content-body {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    .list-panel, .details-panel {
+      mat-card {
+        background-color: gray;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .list-panel, .details-panel {
+        width: 45%
+      }
+    }
+
+    @media (max-width: 599px) {
+      .list-panel, .details-panel {
+        width: 100%
+      }
+
+      .details-panel {
+        margin-top: 10px;
+      }
+    }
+
+    .details-panel {
+      .mat-list-base.mat-list-item.mat-line.job-description {
+        white-space: normal !important;
+      }
+    }
+  }
+}
